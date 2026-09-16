@@ -33,7 +33,7 @@ FULL_W = 2000
 CATEGORIES = [
     ("selected", "Основні роботи", "Selected works", "Основні роботи"),
     ("illustration", "Дизайн та ілюстрації", "Design & illustration", "Дизайн та ілюстрації"),
-    ("graphite", "Графіка", "Graphite", "Графіка"),
+    ("graphite", "Графіка", "Graphics", "Графіка"),
     ("landscape", "Пейзажі", "Landscapes", "Пейзажі"),
     ("sketch", "Скетчі", "Sketches", "Скетчі"),
     ("animation", "Покадрова 2D анімація", "Frame-by-frame 2D animation", "Покадрова 2д анімація"),

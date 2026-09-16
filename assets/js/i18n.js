@@ -52,7 +52,6 @@ window.I18N = {
     "lb.next": "Наступна робота",
     "lb.view": "переглянути",
 
-    "tool.pencil": "олівець",
     "count.one": "робота",
     "count.few": "роботи",
     "count.many": "робіт"
@@ -69,7 +68,7 @@ window.I18N = {
     "hero.title": "I draw<br><em>stories</em><br><span class=\"out\">that never were</span>",
     "hero.note": "characters, creatures<br>and the worlds around them",
     "hero.caption": "Rusalka · digital painting",
-    "hero.lead": "Digital painting, graphite and frame-by-frame animation. I work with characters, creatures and atmosphere — from warm, quiet scenes to nocturnal, almost soundless ones.",
+    "hero.lead": "Digital painting, graphics and frame-by-frame animation. I work with characters, creatures and atmosphere — from warm, quiet scenes to nocturnal, almost soundless ones.",
     "hero.count": "18 works · 6 categories",
     "hero.tools": "Krita · Illustrator · Photoshop",
     "hero.open": "open to collaboration",
@@ -110,7 +109,6 @@ window.I18N = {
     "lb.next": "Next work",
     "lb.view": "view",
 
-    "tool.pencil": "pencil",
     "count.one": "work",
     "count.few": "works",
     "count.many": "works"

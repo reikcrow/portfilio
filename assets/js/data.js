@@ -16,7 +16,7 @@ window.SITE_DATA = {
   {
    "id": "graphite",
    "uk": "Графіка",
-   "en": "Graphite"
+   "en": "Graphics"
   },
   {
    "id": "landscape",
@@ -43,7 +43,7 @@ window.SITE_DATA = {
    "blurb": "",
    "blurbEn": "",
    "year": "",
-   "tool": "pencil",
+   "tool": "",
    "featured": 0,
    "w": 2652,
    "h": 2006,
