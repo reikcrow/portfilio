@@ -1,0 +1,243 @@
+:root{
+  --paper:#F4EEE6;
+  --paper-lit:#FBF8F3;
+  --paper-deep:#EBE2D6;
+  --ink:#1C1A17;
+  --ink-soft:#6B635A;
+  --rule:#D9CEC0;
+  --slate:#556A76;
+  --clay:#A86A6E;
+  --night:#0D0E16;
+
+  --display:"Cormorant Garamond",Georgia,serif;
+  --ui:"Manrope",-apple-system,Segoe UI,sans-serif;
+  --hand:"Caveat",cursive;
+
+  --pad:clamp(20px,6vw,88px);
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--paper);color:var(--ink);font-family:var(--ui);
+  font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+/* паперова зернистість — SVG-шум інлайном, а не растрова текстура */
+body::before{
+  content:"";position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:.42;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/><feColorMatrix type='saturate' values='0'/></filter><rect width='180' height='180' filter='url(%23n)' opacity='.5'/></svg>");
+  mix-blend-mode:multiply;
+}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--slate);outline-offset:3px}
+
+.wrap{max-width:1560px;margin:0 auto;padding-inline:var(--pad)}
+.micro{font:500 11px/1.5 var(--ui);letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft)}
+.hand{font-family:var(--hand);font-size:25px;line-height:1.25;color:var(--slate)}
+.skip{position:absolute;left:-9999px}
+.skip:focus{left:var(--pad);top:10px;z-index:200;background:var(--ink);color:var(--paper);padding:10px 16px}
+
+/* ─────────── хедер ─────────── */
+header{position:sticky;top:0;z-index:80;background:rgba(244,238,230,.86);backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--rule)}
+.hdr{display:flex;align-items:center;justify-content:space-between;gap:24px;padding-block:18px}
+.mark{font:400 23px/1 var(--display);letter-spacing:.06em;white-space:nowrap}
+.mark span{font-style:italic;color:var(--slate)}
+nav{display:flex;gap:30px;align-items:center}
+nav a{font:500 12px/1 var(--ui);letter-spacing:.16em;text-transform:uppercase;position:relative;padding:4px 0}
+nav a::after{content:"";position:absolute;left:0;right:100%;bottom:0;height:1px;background:var(--ink);
+  transition:right .45s var(--ease)}
+nav a:hover::after,nav a[aria-current="page"]::after{right:0}
+.lang{border:1px solid var(--rule);border-radius:2px;display:flex;overflow:hidden}
+.lang button{all:unset;padding:8px 11px;cursor:pointer;transition:background .3s,color .3s;
+  font:600 11px/1 var(--ui);letter-spacing:.1em}
+.lang button[aria-current="true"]{background:var(--ink);color:var(--paper)}
+
+/* ─────────── герой ─────────── */
+.hero{padding-block:clamp(32px,4.5vw,64px) clamp(56px,9vw,120px);position:relative}
+.hero-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:24px;align-items:start}
+.hero-type{grid-column:1/9;grid-row:1;position:relative;z-index:2}
+.eyebrow{display:flex;align-items:center;gap:14px;margin-bottom:26px}
+.eyebrow .line{flex:1;max-width:120px;height:1px;background:var(--ink)}
+h1{font-family:var(--display);font-weight:300;font-size:clamp(52px,10vw,150px);line-height:.88;
+  letter-spacing:-.02em}
+h1 em{font-style:italic;font-weight:300}
+h1 .out{-webkit-text-stroke:1px var(--ink);color:transparent}
+/* нотатка живе в порожньому полі під заголовком, ніколи поверх ілюстрації */
+.note-inline{margin-top:clamp(28px,4vw,54px);display:flex;align-items:flex-start;gap:14px;
+  transform:rotate(-2.5deg);transform-origin:left center;max-width:430px}
+.note-inline .arrow{flex:none;width:76px;color:var(--slate);margin-top:14px}
+.hero-img{grid-column:8/13;grid-row:1;position:relative;z-index:1;margin-top:30px}
+.hero-foot{display:grid;grid-template-columns:repeat(12,1fr);gap:24px;margin-top:clamp(40px,6vw,86px);
+  padding-top:22px;border-top:1px solid var(--rule)}
+.hero-foot p{grid-column:1/6;font-size:17px;color:var(--ink-soft)}
+.hero-foot .meta{grid-column:9/13;display:flex;flex-direction:column;gap:9px;align-items:flex-start}
+
+/* паперова рамка — герой і портрет */
+.frame{background:var(--paper-lit);padding:14px 14px 58px;position:relative;
+  box-shadow:0 1px 0 rgba(28,26,23,.06),0 26px 50px -28px rgba(28,26,23,.45)}
+.frame img{width:100%;height:auto;object-fit:cover}
+.frame figcaption{position:absolute;left:26px;bottom:22px}
+.tape{position:absolute;width:104px;height:26px;background:rgba(214,200,178,.62);
+  box-shadow:0 1px 2px rgba(28,26,23,.14);z-index:3;top:-11px;left:-24px;transform:rotate(-27deg)}
+
+/* ─────────── секції ─────────── */
+section{padding-block:clamp(64px,10vw,140px)}
+.sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:24px;
+  padding-bottom:18px;border-bottom:1px solid var(--rule);margin-bottom:clamp(40px,6vw,76px)}
+.sec-head h2{font:300 clamp(30px,4.6vw,62px)/1 var(--display);letter-spacing:-.01em}
+.sec-head h2 em{font-style:italic;color:var(--slate)}
+
+/* ─────────── сітка робіт ─────────── */
+.works{display:grid;grid-template-columns:repeat(12,1fr);gap:clamp(28px,4vw,64px) 24px}
+.w{position:relative}
+.w-img{overflow:hidden;background:var(--paper-deep) center/cover;position:relative;display:block}
+.w-img img{width:100%;height:100%;object-fit:cover;transition:transform 1.1s var(--ease),opacity .6s}
+.w-img img[data-loading]{opacity:0}
+.w:hover .w-img img{transform:scale(1.035)}
+.w-cap{display:flex;gap:14px;align-items:baseline;margin-top:14px}
+.w-num{font:500 11px/1 var(--ui);letter-spacing:.14em;color:var(--clay);padding-top:3px}
+.w-cap h3{font:400 clamp(19px,1.6vw,26px)/1.15 var(--display);letter-spacing:.005em;flex:1}
+.w-cat{font:500 10px/1 var(--ui);letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft);
+  white-space:nowrap;padding-top:6px}
+
+/* «зламана» сітка головної: різна ширина + вертикальні зсуви */
+.works--featured .w:nth-child(1){grid-column:1/8}
+.works--featured .w:nth-child(1) .w-img{aspect-ratio:16/11}
+.works--featured .w:nth-child(2){grid-column:9/13;align-self:end;padding-bottom:6%}
+.works--featured .w:nth-child(2) .w-img{aspect-ratio:4/5}
+.works--featured .w:nth-child(3){grid-column:2/6;margin-top:-4%}
+.works--featured .w:nth-child(3) .w-img{aspect-ratio:1/1}
+.works--featured .w:nth-child(4){grid-column:7/13}
+.works--featured .w:nth-child(4) .w-img{aspect-ratio:16/11}
+.works--featured .w:nth-child(5){grid-column:4/11}
+.works--featured .w:nth-child(5) .w-img{aspect-ratio:21/10}
+
+/* сітка «всі роботи»: ритм 7-5 / 5-7 зі зсувом, щоб не читалось як стрічка */
+.works--all .w{grid-column:span 6}
+.works--all .w .w-img{aspect-ratio:4/3}
+.works--all .w:nth-child(4n+1){grid-column:1/8}
+.works--all .w:nth-child(4n+2){grid-column:9/13;align-self:end}
+.works--all .w:nth-child(4n+2) .w-img{aspect-ratio:4/5}
+.works--all .w:nth-child(4n+3){grid-column:2/6}
+.works--all .w:nth-child(4n+3) .w-img{aspect-ratio:1/1}
+.works--all .w:nth-child(4n+4){grid-column:7/13;margin-top:-6%}
+.works--all .w:nth-child(4n+4) .w-img{aspect-ratio:16/11}
+
+.empty{grid-column:1/-1;padding:60px 0;text-align:center;color:var(--ink-soft)}
+
+/* фільтр категорій */
+.filters{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:clamp(36px,5vw,64px)}
+.filters button{all:unset;cursor:pointer;padding:9px 16px;border:1px solid var(--rule);border-radius:2px;
+  font:500 11px/1 var(--ui);letter-spacing:.16em;text-transform:uppercase;transition:.3s}
+.filters button:hover{border-color:var(--ink)}
+.filters button[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.filters button span{color:var(--clay);margin-left:8px}
+.filters button[aria-pressed="true"] span{color:var(--paper-deep)}
+
+/* курсор-мазок */
+.brush{position:fixed;z-index:200;pointer-events:none;width:92px;height:92px;border-radius:50%;
+  background:var(--slate);color:var(--paper);display:grid;place-items:center;text-align:center;
+  font-family:var(--hand);font-size:20px;line-height:1.1;padding:10px;
+  transform:translate(-50%,-50%) scale(0);transition:transform .4s var(--ease)}
+.brush.on{transform:translate(-50%,-50%) scale(1)}
+
+/* ─────────── список категорій ─────────── */
+.cats{border-top:1px solid var(--rule)}
+.cat{display:grid;grid-template-columns:64px 1fr auto 150px;gap:28px;align-items:center;
+  padding:22px 0;border-bottom:1px solid var(--rule);transition:padding .5s var(--ease)}
+.cat:hover{padding-left:20px}
+.cat .n{font:500 11px/1 var(--ui);letter-spacing:.14em;color:var(--clay)}
+.cat h3{font:300 clamp(24px,3.2vw,46px)/1.1 var(--display)}
+.cat:hover h3{font-style:italic}
+.cat .count{font:500 11px/1 var(--ui);letter-spacing:.18em;text-transform:uppercase;
+  color:var(--ink-soft);white-space:nowrap}
+.cat .thumb{height:66px;overflow:hidden;opacity:0;transform:translateX(-14px);
+  transition:opacity .5s var(--ease),transform .5s var(--ease)}
+.cat:hover .thumb{opacity:1;transform:none}
+.cat .thumb img{height:66px;width:150px;object-fit:cover}
+
+/* ─────────── про мене ─────────── */
+.about{display:grid;grid-template-columns:repeat(12,1fr);gap:24px;align-items:start}
+.about .portrait{grid-column:1/5}
+.about .portrait .frame{padding:13px 13px 52px;transform:rotate(-1.4deg)}
+.about .portrait img{aspect-ratio:3/4}
+.about .portrait figcaption{font-family:var(--hand);font-size:25px;color:var(--slate);left:24px;bottom:12px}
+.about .txt{grid-column:6/12}
+.about .txt p{font-size:18px;margin-bottom:20px;max-width:56ch}
+.about .txt p.lead{font:300 clamp(24px,2.6vw,34px)/1.35 var(--display);color:var(--ink);max-width:24ch}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px;padding-top:24px;
+  border-top:1px solid var(--rule)}
+.facts div span{display:block}
+.facts .k{font:500 10px/1.4 var(--ui);letter-spacing:.18em;text-transform:uppercase;
+  color:var(--ink-soft);margin-bottom:8px}
+.facts .v{font:400 20px/1.3 var(--display)}
+
+/* ─────────── лайтбокс ─────────── */
+.lb{position:fixed;inset:0;z-index:300;background:var(--night);color:#E9E2D6;
+  padding:clamp(20px,4vw,54px);display:none;opacity:0;transition:opacity .35s var(--ease)}
+.lb[open]{display:block}
+.lb.shown{opacity:1}
+.lb-in{height:100%;display:grid;grid-template-columns:repeat(12,1fr);gap:28px;align-items:center}
+.lb figure{grid-column:4/12;height:100%;display:grid;place-items:center}
+.lb figure img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;
+  box-shadow:0 40px 80px -40px #000}
+.lb .side{grid-column:1/4;display:flex;flex-direction:column;gap:16px}
+.lb h3{font:300 clamp(26px,2.6vw,38px)/1.05 var(--display)}
+.lb .micro{color:#9A9287}
+.lb p{font-size:15px;color:#A8A096;max-width:32ch}
+.lb .nav{display:flex;gap:10px;margin-top:8px}
+.lb .nav button{all:unset;cursor:pointer;width:42px;height:42px;border:1px solid #37343C;
+  display:grid;place-items:center;font-size:17px;transition:.35s}
+.lb .nav button:hover{background:#E9E2D6;color:var(--night)}
+.lb .x{all:unset;cursor:pointer;position:absolute;top:clamp(14px,2vw,26px);right:clamp(14px,2vw,30px);
+  font-size:22px;line-height:1;padding:8px;z-index:2}
+
+/* ─────────── контакти й підвал ─────────── */
+.contact{background:var(--paper-deep)}
+.contact .big{font:300 clamp(30px,5.4vw,80px)/1.05 var(--display);letter-spacing:-.015em;
+  display:inline-block;margin-top:18px;border-bottom:1px solid transparent;transition:border-color .4s}
+.contact .big:hover{border-color:var(--ink)}
+.contact .big em{font-style:italic;color:var(--slate)}
+.socials{display:flex;gap:28px;flex-wrap:wrap;margin-top:44px;padding-top:22px;border-top:1px solid var(--rule)}
+.socials a{font:500 12px/1 var(--ui);letter-spacing:.16em;text-transform:uppercase;
+  border-bottom:1px solid transparent;padding-bottom:4px;transition:.3s}
+.socials a:hover{border-color:var(--ink)}
+footer{padding-block:26px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
+  border-top:1px solid var(--rule)}
+
+/* ставимо після всіх правил із шорткатом font: він скидає font-variant-numeric,
+   а без мінускульних цифер «2D» і «2006» виглядають зламаними */
+h1,.mark,.sec-head h2,.w-cap h3,.cat h3,.cat .n,.w-num,.lb h3,.contact .big,.facts .v{
+  font-variant-numeric:lining-nums;font-feature-settings:"lnum" 1,"onum" 0}
+
+@media(max-width:1100px){
+  .about .txt{grid-column:6/13}
+  .cat{grid-template-columns:52px 1fr auto}
+  .cat .thumb{display:none}
+  .lb figure{grid-column:5/13}
+  .lb .side{grid-column:1/5}
+}
+@media(max-width:900px){
+  .hero-grid,.hero-foot,.about,.works{grid-template-columns:repeat(6,1fr)}
+  .hero-type{grid-row:auto}
+  .hero-type,.hero-foot p,.hero-foot .meta,.about .portrait,.about .txt{grid-column:1/-1}
+  .hero-img{grid-column:1/-1;grid-row:auto;margin:34px 0 0}
+  .works--featured .w,.works--all .w{grid-column:1/-1!important;margin:0;padding:0}
+  .works--featured .w .w-img,.works--all .w .w-img{aspect-ratio:4/3}
+  .note-inline{max-width:none}
+  .about .portrait{max-width:340px;margin-bottom:34px}
+  .facts{grid-template-columns:1fr}
+  /* не ховаємо навігацію на телефоні — переносимо другим рядком хедера */
+  .hdr{flex-wrap:wrap;row-gap:12px}
+  nav{order:3;width:100%;gap:10px;justify-content:space-between;
+      border-top:1px solid var(--rule);padding-top:12px}
+  nav a{font-size:10px;letter-spacing:.1em}
+  .lb-in{grid-template-columns:1fr;grid-template-rows:1fr auto;gap:18px}
+  .lb figure,.lb .side{grid-column:1}
+  .lb .side{gap:10px}
+  .lb p{display:none}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
