@@ -292,6 +292,11 @@
     if (!matchMedia("(hover:hover)").matches) return;
     var brush = document.createElement("div");
     brush.className = "brush";
+    brush.innerHTML =
+      '<svg viewBox="0 0 24 24" aria-hidden="true">' +
+      '<path d="M1.5 12S5.2 5.5 12 5.5 22.5 12 22.5 12 18.8 18.5 12 18.5 1.5 12 1.5 12Z"' +
+      ' stroke-linecap="round" stroke-linejoin="round"/>' +
+      '<circle cx="12" cy="12" r="3.1"/></svg>';
     document.body.appendChild(brush);
 
     var raf = null, mx = 0, my = 0;
@@ -302,10 +307,7 @@
       });
     });
     document.addEventListener("pointerover", function (e) {
-      if (e.target.closest(".w,.cat")) {
-        brush.textContent = t("lb.view");
-        brush.classList.add("on");
-      }
+      if (e.target.closest(".w,.cat")) brush.classList.add("on");
     });
     document.addEventListener("pointerout", function (e) {
       if (e.target.closest(".w,.cat") && !e.relatedTarget?.closest(".w,.cat"))

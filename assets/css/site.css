@@ -138,10 +138,10 @@ section{padding-block:clamp(64px,10vw,140px)}
 .filters button[aria-pressed="true"] span{color:var(--paper-deep)}
 
 /* курсор-мазок */
-.brush{position:fixed;z-index:200;pointer-events:none;width:92px;height:92px;border-radius:50%;
-  background:var(--slate);color:var(--paper);display:grid;place-items:center;text-align:center;
-  font-family:var(--hand);font-size:20px;line-height:1.1;padding:10px;
-  transform:translate(-50%,-50%) scale(0);transition:transform .4s var(--ease)}
+.brush{position:fixed;z-index:200;pointer-events:none;width:38px;height:38px;border-radius:50%;
+  background:var(--slate);display:grid;place-items:center;
+  transform:translate(-50%,-50%) scale(0);transition:transform .35s var(--ease)}
+.brush svg{width:19px;height:19px;stroke:var(--paper);fill:none;stroke-width:1.5}
 .brush.on{transform:translate(-50%,-50%) scale(1)}
 
 /* ─────────── список категорій ─────────── */
@@ -180,11 +180,13 @@ section{padding-block:clamp(64px,10vw,140px)}
   padding:clamp(20px,4vw,54px);display:none;opacity:0;transition:opacity .35s var(--ease)}
 .lb[open]{display:block}
 .lb.shown{opacity:1}
-.lb-in{height:100%;display:grid;grid-template-columns:repeat(12,1fr);gap:28px;align-items:center}
-.lb figure{grid-column:4/12;height:100%;display:grid;place-items:center}
-.lb figure img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;
-  box-shadow:0 40px 80px -40px #000}
-.lb .side{grid-column:1/4;display:flex;flex-direction:column;gap:16px}
+.lb-in{height:100%;display:grid;grid-template-columns:repeat(12,1fr);grid-template-rows:1fr;
+  gap:28px;align-items:stretch}
+/* висоту задаємо явно й центруємо через object-fit: відсотковий max-height
+   усередині auto-рядка ні від чого не рахується — високі роботи різало знизу */
+.lb figure{grid-column:4/12;min-height:0;min-width:0}
+.lb figure img{width:100%;height:100%;object-fit:contain}
+.lb .side{grid-column:1/4;align-self:center;display:flex;flex-direction:column;gap:16px}
 .lb h3{font:300 clamp(26px,2.6vw,38px)/1.05 var(--display)}
 .lb .micro{color:#9A9287}
 .lb p{font-size:15px;color:#A8A096;max-width:32ch}
