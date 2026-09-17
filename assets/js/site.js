@@ -31,13 +31,21 @@
     return id;
   }
   /* українська потребує трьох форм; англійська обходиться двома */
-  function countLabel(n) {
-    if (lang === "en") return n + " " + t(n === 1 ? "count.one" : "count.many");
+  function plural(n, prefix) {
+    if (lang === "en") return n + " " + t(prefix + (n === 1 ? ".one" : ".many"));
     var d10 = n % 10, d100 = n % 100;
-    var form = "count.many";
-    if (d10 === 1 && d100 !== 11) form = "count.one";
-    else if (d10 >= 2 && d10 <= 4 && (d100 < 12 || d100 > 14)) form = "count.few";
-    return n + " " + t(form);
+    var form = ".many";
+    if (d10 === 1 && d100 !== 11) form = ".one";
+    else if (d10 >= 2 && d10 <= 4 && (d100 < 12 || d100 > 14)) form = ".few";
+    return n + " " + t(prefix + form);
+  }
+  function countLabel(n) { return plural(n, "count"); }
+  /* підсумок рахується з даних — інакше він застаряє щоразу, як додається робота */
+  function summary() {
+    var cats = DATA.categories.filter(function (c) {
+      return DATA.works.some(function (w) { return w.cat === c.id; });
+    }).length;
+    return plural(DATA.works.length, "count") + " · " + plural(cats, "cat");
   }
   function gridSrc(w) { return IMG + w.slug + (w.anim ? "" : "-1000") + ".webp"; }
   function fullSrc(w) { return IMG + w.slug + (w.anim ? "" : (w.full ? "-2000" : "-1000")) + ".webp"; }
@@ -51,6 +59,9 @@
     });
     (root || document).querySelectorAll("[data-i18n-label]").forEach(function (el) {
       el.setAttribute("aria-label", t(el.dataset.i18nLabel));
+    });
+    (root || document).querySelectorAll("[data-count]").forEach(function (el) {
+      el.textContent = summary();
     });
   }
 

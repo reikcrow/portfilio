@@ -100,6 +100,22 @@ window.SITE_DATA = {
    "lqip": "data:image/webp;base64,UklGRnYAAABXRUJQVlA4IGoAAADwAwCdASoTABQAPu1orlCppaQiqAqpMB2JZQC9WA0WLZ9eXKvHFYgAAP6vjICYYKEXZekQjrEuT42tcsvzJuCX5We332hSyBx38nIbXKZq5/pn71ZlYtiHbqIKTwxO2HU+ykAUp6AggAAA"
   },
   {
+   "slug": "lysychka",
+   "cat": "illustration",
+   "title": "Лисичка",
+   "titleEn": "Fox",
+   "blurb": "",
+   "blurbEn": "",
+   "year": "",
+   "tool": "",
+   "featured": 0,
+   "w": 1279,
+   "h": 1280,
+   "anim": false,
+   "full": true,
+   "lqip": "data:image/webp;base64,UklGRooAAABXRUJQVlA4IH4AAACQBACdASoUABQAPu1qq08ppiOiMBgIATAdiWgAuwAQ72k11nJSRmQU6nLfOuAA/u1ZWMHV/Qk9/eMwakOHPbPfFdNUljIwVPlIfQk5uy4T4zh1Cwj+CWpvmUZXptArQRTOvM1eNK8Ffb2wl9nao0zd5s2H2REucHl5t/FuAAA="
+  },
+  {
    "slug": "myli-ptasheniata",
    "cat": "illustration",
    "title": "Милі пташенята",
@@ -114,6 +130,22 @@ window.SITE_DATA = {
    "anim": false,
    "full": false,
    "lqip": "data:image/webp;base64,UklGRoYAAABXRUJQVlA4IHoAAAAQBACdASoUABMAPu1wsFIppiSiqAgBMB2JYwAALdDXl5dno8efspDXgAD+5yTp+FB0yXfP7eRgtsRPewXa3Gr31b1NFmdLyS3YyZXczb02pHMLrphSUlW6stQspT6Gi9UutPgAHA+cx7F+W8BgiXg0S9Upd9xTagAAAA=="
+  },
+  {
+   "slug": "ryba",
+   "cat": "illustration",
+   "title": "Риба",
+   "titleEn": "Fish",
+   "blurb": "",
+   "blurbEn": "",
+   "year": "",
+   "tool": "",
+   "featured": 0,
+   "w": 775,
+   "h": 750,
+   "anim": false,
+   "full": false,
+   "lqip": "data:image/webp;base64,UklGRnIAAABXRUJQVlA4IGYAAAAwBACdASoUABMAPu1oqk+ppiQiKA1RMB2JYgDCgBEcPnb993/hx4WDiAAA/uqKUWD/BI8/hffeyEkuRaoksHisVgoug+jNrBpASLG7rjmNcnb/D9kgZ1+TA+N/r+rnRyJWzOVQAAA="
   },
   {
    "slug": "iaskravyi-drakon",
@@ -210,6 +242,22 @@ window.SITE_DATA = {
    "anim": false,
    "full": false,
    "lqip": "data:image/webp;base64,UklGRoAAAABXRUJQVlA4IHQAAAAwBACdASoUABEAPu1qrlCppaQiqAqpMB2JYgCsAAvF/Y4FTJc5+mMLlRAAxnF2vyxWWWo4+IGWnrCWdELMm8UQiPvXXtne27eBMletLyO34fOV0ROJV7g6s+tOwKNtAYw1dJqPxIWs/9TimudiI4Oa4AAAAA=="
+  },
+  {
+   "slug": "polit-drakona",
+   "cat": "selected",
+   "title": "Політ дракона",
+   "titleEn": "Dragon in flight",
+   "blurb": "",
+   "blurbEn": "",
+   "year": "",
+   "tool": "",
+   "featured": 0,
+   "w": 1280,
+   "h": 1122,
+   "anim": false,
+   "full": true,
+   "lqip": "data:image/webp;base64,UklGRp4AAABXRUJQVlA4IJIAAABQBACdASoUABIAPu1qrVCppaQiqAqpMB2JQBkT7QACIux3m2T6X76rvbAAAP7QUeZSwWNXZOcqZQjaNW+9t5GtZeRU8ss4j1UH6wS4kyjLfqffFIvZ6S0TMNRvt+TKqAt0SHFoHCoXpKSVYohimcIY7kbIgOqGWFL0bRuHvVech/SAWFJYk6EtuzQWE05jjcAAAA=="
   },
   {
    "slug": "rusalka",

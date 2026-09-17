@@ -12,7 +12,6 @@ window.I18N = {
     "hero.note": "персонажі, істоти<br>та світи навколо них",
     "hero.caption": "Русалка · цифровий живопис",
     "hero.lead": "Цифровий живопис, графіка та покадрова анімація. Працюю з персонажами, істотами й атмосферою — від теплих затишних сцен до нічних, майже беззвучних.",
-    "hero.count": "18 робіт · 6 категорій",
     "hero.tools": "Krita · Illustrator · Photoshop",
     "hero.open": "відкрита до співпраці",
 
@@ -24,7 +23,6 @@ window.I18N = {
     "cats.hint": "наведіть курсор",
 
     "works.title": "Усі <em>роботи</em>",
-    "works.subtitle": "18 робіт · 6 категорій",
     "works.all": "Усі",
     "works.empty": "У цій категорії поки порожньо.",
 
@@ -54,7 +52,10 @@ window.I18N = {
 
     "count.one": "робота",
     "count.few": "роботи",
-    "count.many": "робіт"
+    "count.many": "робіт",
+    "cat.one": "категорія",
+    "cat.few": "категорії",
+    "cat.many": "категорій"
   },
 
   en: {
@@ -69,7 +70,6 @@ window.I18N = {
     "hero.note": "characters, creatures<br>and the worlds around them",
     "hero.caption": "Rusalka · digital painting",
     "hero.lead": "Digital painting, graphics and frame-by-frame animation. I work with characters, creatures and atmosphere — from warm, quiet scenes to nocturnal, almost soundless ones.",
-    "hero.count": "18 works · 6 categories",
     "hero.tools": "Krita · Illustrator · Photoshop",
     "hero.open": "open to collaboration",
 
@@ -81,7 +81,6 @@ window.I18N = {
     "cats.hint": "hover to preview",
 
     "works.title": "All <em>works</em>",
-    "works.subtitle": "18 works · 6 categories",
     "works.all": "All",
     "works.empty": "Nothing here yet.",
 
@@ -111,6 +110,9 @@ window.I18N = {
 
     "count.one": "work",
     "count.few": "works",
-    "count.many": "works"
+    "count.many": "works",
+    "cat.one": "category",
+    "cat.few": "categories",
+    "cat.many": "categories"
   }
 };
